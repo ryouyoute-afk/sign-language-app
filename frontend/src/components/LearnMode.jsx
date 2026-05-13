@@ -9,67 +9,89 @@ const DIFFICULTY_COLOR = {
 
 const ASL_LETTERS = {
   A: { description: "Make a fist. Thumb rests on the side of the index finger.", difficulty: "easy" },
-  B: { description: "Hold four fingers together and straight up. Tuck thumb across palm.", difficulty: "easy" },
-  C: { description: "Curve all fingers and thumb to form the letter C.", difficulty: "easy" },
-  D: { description: "Curl middle, ring, and pinky. Touch thumb to middle fingertip. Point index up.", difficulty: "medium" },
-  E: { description: "Bend all fingers down. Tuck thumb under fingers.", difficulty: "medium" },
-  F: { description: "Touch thumb and index fingertips together. Hold other three fingers up.", difficulty: "medium" },
-  G: { description: "Point index finger sideways. Thumb points the same direction.", difficulty: "medium" },
-  H: { description: "Point index and middle fingers sideways together.", difficulty: "medium" },
-  I: { description: "Hold up only the pinky finger. Make a fist with other fingers.", difficulty: "easy" },
-  J: { description: "Start with I handshape, then trace a J arc in the air.", difficulty: "medium" },
-  K: { description: "Extend index and middle fingers in a V. Place thumb between them.", difficulty: "hard" },
-  L: { description: "Extend index finger up and thumb out to form an L shape.", difficulty: "easy" },
-  M: { description: "Tuck thumb under three fingers (index, middle, ring).", difficulty: "hard" },
-  N: { description: "Tuck thumb under two fingers (index and middle).", difficulty: "hard" },
-  O: { description: "Curve all fingers and thumb to touch — forming an O.", difficulty: "easy" },
-  P: { description: "Like K but point fingers downward.", difficulty: "hard" },
-  Q: { description: "Like G but point fingers downward.", difficulty: "hard" },
-  R: { description: "Cross index and middle fingers. Extend them upward.", difficulty: "medium" },
-  S: { description: "Make a fist. Thumb wraps over the front of the fingers.", difficulty: "easy" },
-  T: { description: "Tuck thumb between index and middle fingers.", difficulty: "medium" },
-  U: { description: "Hold index and middle fingers up together. Tuck other fingers.", difficulty: "easy" },
-  V: { description: "Extend index and middle fingers in a V shape.", difficulty: "easy" },
-  W: { description: "Extend index, middle, and ring fingers spread apart.", difficulty: "medium" },
-  X: { description: "Hook the index finger like a crooked finger.", difficulty: "medium" },
-  Y: { description: "Extend thumb out and pinky up. Curl other fingers.", difficulty: "easy" },
-  Z: { description: "Draw a Z in the air with your index finger.", difficulty: "medium" },
+  B: { description: "Hold all four fingers straight up and together. Tuck your thumb flat across the palm.", difficulty: "easy" },
+  C: { description: "Curve all fingers and thumb into a C shape, like holding a cup.", difficulty: "easy" },
+  D: { description: "Touch your thumb to your middle, ring, and pinky fingers. Point your index finger straight up.", difficulty: "medium" },
+  E: { description: "Curl all four fingers down so the tips touch the top of the palm. Tuck thumb under.", difficulty: "medium" },
+  F: { description: "Touch the tip of your index finger to the tip of your thumb. Hold middle, ring, and pinky fingers up.", difficulty: "medium" },
+  G: { description: "Point your index finger sideways (to the side). Thumb also points the same direction.", difficulty: "medium" },
+  H: { description: "Point your index and middle fingers sideways together, side by side.", difficulty: "medium" },
+  I: { description: "Make a fist and extend only your pinky finger straight up.", difficulty: "easy" },
+  J: { description: "Hold up your pinky (like I), then draw a J shape in the air moving down and curving.", difficulty: "medium" },
+  K: { description: "Point index finger up, middle finger angled out, thumb between them. Like a K shape.", difficulty: "hard" },
+  L: { description: "Extend your index finger up and your thumb out to the side — making an L shape.", difficulty: "easy" },
+  M: { description: "Fold your index, middle, and ring fingers over your thumb. Pinky tucked.", difficulty: "hard" },
+  N: { description: "Fold your index and middle fingers over your thumb. Ring and pinky tucked.", difficulty: "hard" },
+  O: { description: "Bring all your fingertips together to touch your thumb tip, forming an O circle.", difficulty: "easy" },
+  P: { description: "Like K but rotate your hand so fingers point downward instead of up.", difficulty: "hard" },
+  Q: { description: "Like G (index and thumb pointing) but rotate hand so fingers point downward.", difficulty: "hard" },
+  R: { description: "Cross your index and middle fingers over each other and extend them upward.", difficulty: "medium" },
+  S: { description: "Make a fist with your thumb wrapped over the front of all four fingers.", difficulty: "easy" },
+  T: { description: "Make a fist with your thumb poking out between your index and middle fingers.", difficulty: "medium" },
+  U: { description: "Hold your index and middle fingers straight up together, side by side. Curl others.", difficulty: "easy" },
+  V: { description: "Extend your index and middle fingers up and spread them apart in a V shape.", difficulty: "easy" },
+  W: { description: "Hold your index, middle, and ring fingers up and spread apart. Thumb and pinky folded.", difficulty: "medium" },
+  X: { description: "Extend your index finger and bend/hook it like a curved hook or question mark.", difficulty: "medium" },
+  Y: { description: "Extend your thumb out to the side and your pinky finger up. Curl the other three fingers.", difficulty: "easy" },
+  Z: { description: "Point your index finger and draw the letter Z in the air.", difficulty: "medium" },
 };
 
 const ASL_NUMBERS = {
-  0: { description: "Curve all fingers and thumb together to form an O shape.", difficulty: "easy" },
-  1: { description: "Point index finger straight up. Curl all other fingers into a fist.", difficulty: "easy" },
-  2: { description: "Hold index and middle fingers up in a V shape. Thumb out to the side.", difficulty: "easy" },
-  3: { description: "Extend thumb, index, and middle fingers. Curl ring and pinky down.", difficulty: "easy" },
-  4: { description: "Hold four fingers straight up, spread apart. Tuck thumb across palm.", difficulty: "easy" },
-  5: { description: "Spread all five fingers wide open.", difficulty: "easy" },
-  6: { description: "Touch pinky and thumb together. Hold index, middle, and ring fingers up.", difficulty: "medium" },
-  7: { description: "Touch ring finger and thumb together. Hold other fingers up.", difficulty: "medium" },
-  8: { description: "Touch middle finger and thumb together. Hold other fingers up.", difficulty: "medium" },
-  9: { description: "Touch index finger and thumb together in a circle. Curl other fingers.", difficulty: "medium" },
+  0: { description: "Bring all your fingertips together to touch your thumb — making a round O shape.", difficulty: "easy" },
+  1: { description: "Point your index finger straight up. Curl all other fingers into a fist.", difficulty: "easy" },
+  2: { description: "Hold your index and middle fingers up in a V shape. Thumb rests to the side.", difficulty: "easy" },
+  3: { description: "Extend your thumb, index finger, and middle finger. Curl your ring and pinky fingers down.", difficulty: "easy" },
+  4: { description: "Hold all four fingers straight up and spread apart. Tuck your thumb across your palm.", difficulty: "easy" },
+  5: { description: "Spread all five fingers wide open — like a full open hand.", difficulty: "easy" },
+  6: { description: "Touch your pinky fingertip to your thumb tip. Hold your other three fingers up.", difficulty: "medium" },
+  7: { description: "Touch your ring fingertip to your thumb tip. Hold your other fingers up.", difficulty: "medium" },
+  8: { description: "Touch your middle fingertip to your thumb tip. Hold your other fingers up.", difficulty: "medium" },
+  9: { description: "Touch your index fingertip to your thumb tip making a circle. Curl your other fingers.", difficulty: "medium" },
 };
 
-// Image URLs from lifeprint.com (free ASL educational resource)
-function getImageUrl(key, type) {
-  if (type === "letter") {
-    return `https://www.lifeprint.com/asl101/fingerspelling/abc-gifs/${key.toLowerCase()}.gif`;
-  }
-  return `https://www.lifeprint.com/asl101/fingerspelling/numbers/${key}.gif`;
-}
+// Wikimedia Commons has reliable, freely-licensed ASL letter images
+const LETTER_IMAGES = {
+  A: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Sign_language_A.svg/200px-Sign_language_A.svg.png",
+  B: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sign_language_B.svg/200px-Sign_language_B.svg.png",
+  C: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Sign_language_C.svg/200px-Sign_language_C.svg.png",
+  D: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Sign_language_D.svg/200px-Sign_language_D.svg.png",
+  E: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Sign_language_E.svg/200px-Sign_language_E.svg.png",
+  F: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Sign_language_F.svg/200px-Sign_language_F.svg.png",
+  G: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Sign_language_G.svg/200px-Sign_language_G.svg.png",
+  H: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Sign_language_H.svg/200px-Sign_language_H.svg.png",
+  I: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Sign_language_I.svg/200px-Sign_language_I.svg.png",
+  J: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Sign_language_J.svg/200px-Sign_language_J.svg.png",
+  K: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Sign_language_K.svg/200px-Sign_language_K.svg.png",
+  L: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Sign_language_L.svg/200px-Sign_language_L.svg.png",
+  M: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Sign_language_M.svg/200px-Sign_language_M.svg.png",
+  N: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Sign_language_N.svg/200px-Sign_language_N.svg.png",
+  O: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Sign_language_O.svg/200px-Sign_language_O.svg.png",
+  P: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Sign_language_P.svg/200px-Sign_language_P.svg.png",
+  Q: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Sign_language_Q.svg/200px-Sign_language_Q.svg.png",
+  R: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Sign_language_R.svg/200px-Sign_language_R.svg.png",
+  S: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Sign_language_S.svg/200px-Sign_language_S.svg.png",
+  T: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Sign_language_T.svg/200px-Sign_language_T.svg.png",
+  U: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Sign_language_U.svg/200px-Sign_language_U.svg.png",
+  V: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Sign_language_V.svg/200px-Sign_language_V.svg.png",
+  W: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Sign_language_W.svg/200px-Sign_language_W.svg.png",
+  X: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Sign_language_X.svg/200px-Sign_language_X.svg.png",
+  Y: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Sign_language_Y.svg/200px-Sign_language_Y.svg.png",
+  Z: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Sign_language_Z.svg/200px-Sign_language_Z.svg.png",
+};
 
 function SignImage({ label, src }) {
   const [failed, setFailed] = useState(false);
   return (
-    <div className="flex items-center justify-center w-48 h-48 rounded-2xl bg-slate-800 border border-slate-700 flex-shrink-0 overflow-hidden">
-      {!failed ? (
+    <div className="flex items-center justify-center w-48 h-48 rounded-2xl bg-white border border-slate-200 flex-shrink-0 overflow-hidden">
+      {src && !failed ? (
         <img
           src={src}
           alt={`ASL sign for ${label}`}
-          className="w-full h-full object-contain p-2"
+          className="w-full h-full object-contain p-3"
           onError={() => setFailed(true)}
         />
       ) : (
-        <span className="text-7xl font-bold text-sky-400 select-none">{label}</span>
+        <span className="text-7xl font-bold text-sky-500 select-none">{label}</span>
       )}
     </div>
   );
@@ -136,7 +158,7 @@ export default function LearnMode() {
   const isLetters = tab === "letters";
   const allKeys = isLetters
     ? Object.keys(ASL_LETTERS).sort()
-    : Object.keys(ASL_NUMBERS).map(Number).sort((a, b) => a - b).map(String);
+    : ["0","1","2","3","4","5","6","7","8","9"];
 
   const filtered = isLetters && filter !== "all"
     ? allKeys.filter((k) => ASL_LETTERS[k]?.difficulty === filter)
@@ -144,7 +166,7 @@ export default function LearnMode() {
 
   const key = filtered[idx];
   const sign = isLetters ? ASL_LETTERS[key] : ASL_NUMBERS[key];
-  const imageUrl = key !== undefined ? getImageUrl(key, isLetters ? "letter" : "number") : "";
+  const imageUrl = isLetters ? LETTER_IMAGES[key] : null;
 
   useEffect(() => setIdx(0), [tab, filter]);
 
@@ -164,7 +186,7 @@ export default function LearnMode() {
 
       {/* Difficulty filter (letters only) */}
       {isLetters && (
-        <div className="flex gap-2">
+        <div className="flex gap-2 flex-wrap">
           {["all", "easy", "medium", "hard"].map((f) => (
             <button key={f} onClick={() => setFilter(f)}
               className={`px-3 py-1 rounded-lg text-sm font-medium capitalize transition-colors ${
