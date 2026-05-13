@@ -2,7 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import { Trophy, RefreshCw, Target } from "lucide-react";
 import Camera from "./Camera";
 
-const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+// Only letters our browser classifier can reliably detect
+const ALPHABET = ["A","B","D","E","F","I","L","O","U","V","W","Y"];
 const HOLD_SECONDS = 2;
 
 function randomLetter(exclude) {
@@ -34,7 +35,7 @@ export default function PracticeMode() {
     const letter = result.letter;
     const conf = result.confidence ?? 0;
 
-    if (letter === target && conf >= 0.65) {
+    if (letter === target && conf >= 0.4) {
       // Start / continue hold timer
       if (!holdStart.current) holdStart.current = Date.now();
       setStatus("holding");
