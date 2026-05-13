@@ -1,0 +1,8 @@
+backend/venv/
+frontend/node_modules/
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+backend/models/
+backend/data/
