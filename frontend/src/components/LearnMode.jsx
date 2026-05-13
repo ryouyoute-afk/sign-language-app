@@ -14,11 +14,11 @@ const ASL_LETTERS = {
   D: { description: "Touch your thumb to your middle, ring, and pinky fingers. Point your index finger straight up.", difficulty: "medium" },
   E: { description: "Curl all four fingers down so the tips touch the top of the palm. Tuck thumb under.", difficulty: "medium" },
   F: { description: "Touch the tip of your index finger to the tip of your thumb. Hold middle, ring, and pinky fingers up.", difficulty: "medium" },
-  G: { description: "Point your index finger sideways (to the side). Thumb also points the same direction.", difficulty: "medium" },
+  G: { description: "Point your index finger sideways. Thumb also points the same direction.", difficulty: "medium" },
   H: { description: "Point your index and middle fingers sideways together, side by side.", difficulty: "medium" },
   I: { description: "Make a fist and extend only your pinky finger straight up.", difficulty: "easy" },
   J: { description: "Hold up your pinky (like I), then draw a J shape in the air moving down and curving.", difficulty: "medium" },
-  K: { description: "Point index finger up, middle finger angled out, thumb between them. Like a K shape.", difficulty: "hard" },
+  K: { description: "Point index finger up, middle finger angled out, thumb between them.", difficulty: "hard" },
   L: { description: "Extend your index finger up and your thumb out to the side — making an L shape.", difficulty: "easy" },
   M: { description: "Fold your index, middle, and ring fingers over your thumb. Pinky tucked.", difficulty: "hard" },
   N: { description: "Fold your index and middle fingers over your thumb. Ring and pinky tucked.", difficulty: "hard" },
@@ -31,7 +31,7 @@ const ASL_LETTERS = {
   U: { description: "Hold your index and middle fingers straight up together, side by side. Curl others.", difficulty: "easy" },
   V: { description: "Extend your index and middle fingers up and spread them apart in a V shape.", difficulty: "easy" },
   W: { description: "Hold your index, middle, and ring fingers up and spread apart. Thumb and pinky folded.", difficulty: "medium" },
-  X: { description: "Extend your index finger and bend/hook it like a curved hook or question mark.", difficulty: "medium" },
+  X: { description: "Extend your index finger and bend/hook it like a curved hook.", difficulty: "medium" },
   Y: { description: "Extend your thumb out to the side and your pinky finger up. Curl the other three fingers.", difficulty: "easy" },
   Z: { description: "Point your index finger and draw the letter Z in the air.", difficulty: "medium" },
 };
@@ -49,10 +49,10 @@ const ASL_NUMBERS = {
   9: { description: "Touch your index fingertip to your thumb tip making a circle. Curl your other fingers.", difficulty: "medium" },
 };
 
-// Wikimedia Commons has reliable, freely-licensed ASL letter images
+// Verified hand-sign photo URLs from Wikimedia Commons (CC-BY-SA, hotlinking allowed)
 const LETTER_IMAGES = {
-  A: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Sign_language_A.svg/200px-Sign_language_A.svg.png",
-  B: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sign_language_B.svg/200px-Sign_language_B.svg.png",
+  A: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Sign_language_A.svg/200px-Sign_language_A.svg.png",
+  B: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Sign_language_B.svg/200px-Sign_language_B.svg.png",
   C: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Sign_language_C.svg/200px-Sign_language_C.svg.png",
   D: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Sign_language_D.svg/200px-Sign_language_D.svg.png",
   E: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Sign_language_E.svg/200px-Sign_language_E.svg.png",
@@ -79,6 +79,20 @@ const LETTER_IMAGES = {
   Z: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Sign_language_Z.svg/200px-Sign_language_Z.svg.png",
 };
 
+// Real hand-sign photos from Wikimedia Commons for numbers
+const NUMBER_IMAGES = {
+  0: "https://upload.wikimedia.org/wikipedia/commons/f/f1/O%40InForward.jpg",
+  1: "https://upload.wikimedia.org/wikipedia/commons/3/35/1%40InForward.jpg",
+  2: "https://upload.wikimedia.org/wikipedia/commons/3/34/V%40InForward.jpg",
+  3: "https://upload.wikimedia.org/wikipedia/commons/6/61/3%40InForward.jpg",
+  4: "https://upload.wikimedia.org/wikipedia/commons/a/ae/4%40InForward.jpg",
+  5: "https://upload.wikimedia.org/wikipedia/commons/c/c7/5%40InForward.jpg",
+  6: "https://upload.wikimedia.org/wikipedia/commons/4/47/6%40InForward.jpg",
+  7: "https://upload.wikimedia.org/wikipedia/commons/f/fe/7%40InForward.jpg",
+  8: "https://upload.wikimedia.org/wikipedia/commons/7/7a/8%40InForward.jpg",
+  9: "https://upload.wikimedia.org/wikipedia/commons/d/dc/9%40InForward.jpg",
+};
+
 function SignImage({ label, src }) {
   const [failed, setFailed] = useState(false);
   return (
@@ -86,8 +100,8 @@ function SignImage({ label, src }) {
       {src && !failed ? (
         <img
           src={src}
-          alt={`ASL sign for ${label}`}
-          className="w-full h-full object-contain p-3"
+          alt={`ASL hand sign for ${label}`}
+          className="w-full h-full object-contain p-2"
           onError={() => setFailed(true)}
         />
       ) : (
@@ -165,8 +179,8 @@ export default function LearnMode() {
     : allKeys;
 
   const key = filtered[idx];
-  const sign = isLetters ? ASL_LETTERS[key] : ASL_NUMBERS[key];
-  const imageUrl = isLetters ? LETTER_IMAGES[key] : null;
+  const sign = isLetters ? ASL_LETTERS[key] : ASL_NUMBERS[Number(key)];
+  const imageUrl = isLetters ? LETTER_IMAGES[key] : NUMBER_IMAGES[Number(key)];
 
   useEffect(() => setIdx(0), [tab, filter]);
 
