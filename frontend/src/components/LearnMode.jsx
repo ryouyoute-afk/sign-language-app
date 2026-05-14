@@ -17,7 +17,7 @@ const ASL_LETTERS = {
   G: { description: "Point your index finger sideways. Thumb also points the same direction.", difficulty: "medium" },
   H: { description: "Point your index and middle fingers sideways together, side by side.", difficulty: "medium" },
   I: { description: "Make a fist and extend only your pinky finger straight up.", difficulty: "easy" },
-  J: { description: "Hold up your pinky (like I), then draw a J shape in the air moving down and curving.", difficulty: "medium" },
+  J: { description: "Hold up your pinky (like I), then draw a J shape in the air moving down and curving. This letter involves motion — trace the full J path in the air.", difficulty: "medium", motion: true },
   K: { description: "Point index finger up, middle finger angled out, thumb between them.", difficulty: "hard" },
   L: { description: "Extend your index finger up and your thumb out to the side — making an L shape.", difficulty: "easy" },
   M: { description: "Fold your index, middle, and ring fingers over your thumb. Pinky tucked.", difficulty: "hard" },
@@ -33,7 +33,7 @@ const ASL_LETTERS = {
   W: { description: "Hold your index, middle, and ring fingers up and spread apart. Thumb and pinky folded.", difficulty: "medium" },
   X: { description: "Extend your index finger and bend/hook it like a curved hook.", difficulty: "medium" },
   Y: { description: "Extend your thumb out to the side and your pinky finger up. Curl the other three fingers.", difficulty: "easy" },
-  Z: { description: "Point your index finger and draw the letter Z in the air.", difficulty: "medium" },
+  Z: { description: "Point your index finger and draw the letter Z in the air — three strokes: across, diagonal down, across. This letter involves motion.", difficulty: "medium", motion: true },
 };
 
 const ASL_NUMBERS = {
@@ -50,21 +50,21 @@ const ASL_NUMBERS = {
 };
 
 const ASL_WORDS = {
-  "Hello":      { description: "Open your hand flat and wave it from your forehead outward, like a salute.", difficulty: "easy" },
-  "Thank You":  { description: "Touch your flat hand to your chin, then move it forward and down toward the person.", difficulty: "easy" },
-  "Please":     { description: "Place your flat hand on your chest and move it in a circle.", difficulty: "easy" },
-  "Sorry":      { description: "Make a fist, place it on your chest, and move it in a circle.", difficulty: "easy" },
-  "Yes":        { description: "Make a fist and nod it up and down, like a head nodding yes.", difficulty: "easy" },
-  "No":         { description: "Extend your index and middle fingers, then snap them closed to your thumb twice.", difficulty: "easy" },
-  "I Love You": { description: "Extend your thumb, index finger, and pinky finger. Hold them up together — this is the ILY sign.", difficulty: "easy" },
-  "Help":       { description: "Make a fist (thumb up) and place it on your flat other hand. Lift both hands upward together.", difficulty: "medium" },
-  "Stop":       { description: "Hold one hand flat, palm up. Bring your other flat hand down sharply onto it like a karate chop.", difficulty: "easy" },
-  "More":       { description: "Bring all your fingertips together on both hands, then tap the fingertips of both hands together twice.", difficulty: "medium" },
-  "Good":       { description: "Touch your flat hand to your chin, then move it forward and down into your other flat open hand.", difficulty: "easy" },
-  "Bad":        { description: "Touch your flat hand to your chin, then flip it downward away from you.", difficulty: "easy" },
-  "Water":      { description: "Make a W shape (3 fingers up) and tap it to your chin twice.", difficulty: "medium" },
-  "Eat":        { description: "Bring your fingertips together and tap them to your mouth twice, like putting food in your mouth.", difficulty: "easy" },
-  "Friend":     { description: "Hook your index fingers together, first one way then the other, linking them like friendship.", difficulty: "medium" },
+  "Hello":      { description: "Open your hand flat and wave it from your forehead outward, like a salute.", difficulty: "easy",   gif: "https://media.giphy.com/media/3o7TKNKOfKlIhbD3gY/giphy.gif" },
+  "Thank You":  { description: "Touch your flat hand to your chin, then move it forward and down toward the person.", difficulty: "easy",   gif: "https://media.giphy.com/media/l0MYrlUnFtq25TQR2/giphy.gif" },
+  "Please":     { description: "Place your flat hand on your chest and move it in a circle.", difficulty: "easy",   gif: "https://media.giphy.com/media/l0MYEXSLkUipy1zVK/giphy.gif" },
+  "Sorry":      { description: "Make a fist, place it on your chest, and move it in a circle.", difficulty: "easy",   gif: "https://media.giphy.com/media/3o7TKq0oNLk8ljH7vG/giphy.gif" },
+  "Yes":        { description: "Make a fist and nod it up and down, like a head nodding yes.", difficulty: "easy",   gif: "https://media.giphy.com/media/l4Jz0THKhQLo61NBK/giphy.gif" },
+  "No":         { description: "Extend your index and middle fingers, then snap them closed to your thumb twice.", difficulty: "easy",   gif: "https://media.giphy.com/media/l4Jz4faxuS1FiSEV2/giphy.gif" },
+  "I Love You": { description: "Extend your thumb, index finger, and pinky finger. Hold them up together — this is the ILY sign.", difficulty: "easy",   gif: "https://media.giphy.com/media/UNyHCOe7UFeJa/giphy.gif" },
+  "Help":       { description: "Make a fist (thumb up) and place it on your flat other hand. Lift both hands upward together.", difficulty: "medium", gif: "https://media.giphy.com/media/l0MYQo0iDSTlnRifK/giphy.gif" },
+  "Stop":       { description: "Hold one hand flat, palm up. Bring your other flat hand down sharply onto it like a karate chop.", difficulty: "easy",   gif: "https://media.giphy.com/media/3oz8xvTLySRClnMMko/giphy.gif" },
+  "More":       { description: "Bring all your fingertips together on both hands, then tap the fingertips of both hands together twice.", difficulty: "medium", gif: "https://media.giphy.com/media/m1Hc32qayJh7i/giphy.gif" },
+  "Good":       { description: "Touch your flat hand to your chin, then move it forward and down into your other flat open hand.", difficulty: "easy",   gif: "https://media.giphy.com/media/26DOD8Swx0bBWGXrq/giphy.gif" },
+  "Bad":        { description: "Touch your flat hand to your chin, then flip it downward away from you.", difficulty: "easy",   gif: "https://media.giphy.com/media/xUNd9O4hvl0dcGWyEU/giphy.gif" },
+  "Water":      { description: "Make a W shape (3 fingers up) and tap it to your chin twice.", difficulty: "medium", gif: "https://media.giphy.com/media/26DOtNnaZuvgS5wTS/giphy.gif" },
+  "Eat":        { description: "Bring your fingertips together and tap them to your mouth twice, like putting food in your mouth.", difficulty: "easy",   gif: "https://media.giphy.com/media/l3vRhFBHY2JT5QIdq/giphy.gif" },
+  "Friend":     { description: "Hook your index fingers together, first one way then the other, linking them like friendship.", difficulty: "medium", gif: "https://media.giphy.com/media/3o7TKxJ9b7iHDWj0pa/giphy.gif" },
 };
 
 // Real hand sign photos from Wikimedia Commons (orange background series)
@@ -112,15 +112,17 @@ const NUMBER_IMAGES = {
   9: "https://upload.wikimedia.org/wikipedia/commons/d/dc/9%40InForward.jpg",
 };
 
-function SignImage({ label, src }) {
+function SignImage({ label, src, isGif }) {
   const [failed, setFailed] = useState(false);
   return (
-    <div className="flex items-center justify-center w-48 h-48 rounded-2xl bg-white border border-slate-200 flex-shrink-0 overflow-hidden">
+    <div className={`flex items-center justify-center w-48 h-48 rounded-2xl border flex-shrink-0 overflow-hidden ${
+      isGif ? "bg-black border-slate-600" : "bg-white border-slate-200"
+    }`}>
       {src && !failed ? (
         <img
           src={src}
           alt={`ASL hand sign for ${label}`}
-          className="w-full h-full object-contain p-2"
+          className="w-full h-full object-contain p-1"
           onError={() => setFailed(true)}
         />
       ) : (
@@ -151,16 +153,31 @@ function SignGrid({ items, idx, onSelect }) {
 }
 
 function SignCard({ label, sign, imageUrl, idx, total, onPrev, onNext }) {
+  const src = sign.gif || imageUrl;
+  const isGif = !!sign.gif;
+
   return (
     <div className="flex flex-col sm:flex-row gap-6 rounded-2xl border border-slate-700 bg-slate-900 p-6">
-      <SignImage label={label} src={imageUrl} />
+      <SignImage label={label} src={src} isGif={isGif} />
       <div className="flex flex-col gap-4 flex-1">
         <div className="flex items-start justify-between">
           <div>
             <h2 className="text-4xl font-bold text-white">{label}</h2>
-            <span className={`mt-1 inline-block px-2 py-0.5 rounded text-xs font-medium capitalize ${DIFFICULTY_COLOR[sign.difficulty] ?? ""}`}>
-              {sign.difficulty}
-            </span>
+            <div className="flex gap-2 mt-1 flex-wrap">
+              <span className={`inline-block px-2 py-0.5 rounded text-xs font-medium capitalize ${DIFFICULTY_COLOR[sign.difficulty] ?? ""}`}>
+                {sign.difficulty}
+              </span>
+              {sign.motion && (
+                <span className="inline-block px-2 py-0.5 rounded text-xs font-medium bg-purple-500/20 text-purple-400">
+                  involves motion
+                </span>
+              )}
+              {isGif && (
+                <span className="inline-block px-2 py-0.5 rounded text-xs font-medium bg-sky-500/20 text-sky-400">
+                  animated
+                </span>
+              )}
+            </div>
           </div>
           <div className="flex gap-2">
             <button onClick={onPrev} disabled={idx === 0}
