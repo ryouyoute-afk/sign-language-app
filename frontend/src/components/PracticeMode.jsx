@@ -1,6 +1,29 @@
 import { useState, useEffect, useRef } from "react";
-import { Trophy, RefreshCw, Target } from "lucide-react";
+import { Trophy, RefreshCw, Target, Share2 } from "lucide-react";
 import Camera from "./Camera";
+
+const APP_URL = "https://sign-language-app-olive.vercel.app";
+
+function ShareButton({ score, streak }) {
+  const [copied, setCopied] = useState(false);
+  const share = async () => {
+    const text = `🤙 I scored ${score} points (${streak} streak) in SignAI ASL Practice! Can you beat me?\n${APP_URL}`;
+    if (navigator.share) {
+      try { await navigator.share({ title: "SignAI Practice", text }); } catch {}
+    } else {
+      await navigator.clipboard.writeText(text);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
+  return (
+    <button onClick={share}
+      className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm text-sky-400 bg-sky-500/10 hover:bg-sky-500/20 border border-sky-500/30 transition-colors font-semibold">
+      <Share2 size={14} />
+      {copied ? "Copied!" : "Share"}
+    </button>
+  );
+}
 
 // Only letters our browser classifier can reliably detect
 const ALPHABET = ["A","B","D","E","F","I","L","O","U","V","W","Y"];
@@ -85,12 +108,15 @@ export default function PracticeMode() {
           <Target size={16} className="text-sky-400" />
           <span className="text-sm font-semibold text-slate-200">Streak: {streak}</span>
         </div>
-        <button
-          onClick={() => { setScore(0); setStreak(0); nextTarget(); }}
-          className="ml-auto flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm text-slate-400 hover:text-slate-200 bg-slate-800 hover:bg-slate-700 transition-colors"
-        >
-          <RefreshCw size={14} /> Reset
-        </button>
+        <div className="ml-auto flex gap-2">
+          <ShareButton score={score} streak={streak} />
+          <button
+            onClick={() => { setScore(0); setStreak(0); nextTarget(); }}
+            className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm text-slate-400 hover:text-slate-200 bg-slate-800 hover:bg-slate-700 transition-colors"
+          >
+            <RefreshCw size={14} /> Reset
+          </button>
+        </div>
       </div>
 
       {/* Target + progress */}

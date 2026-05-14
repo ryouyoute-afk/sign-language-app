@@ -49,6 +49,24 @@ const ASL_NUMBERS = {
   9: { description: "Touch your index fingertip to your thumb tip making a circle. Curl your other fingers.", difficulty: "medium" },
 };
 
+const ASL_WORDS = {
+  "Hello":      { description: "Open your hand flat and wave it from your forehead outward, like a salute.", difficulty: "easy" },
+  "Thank You":  { description: "Touch your flat hand to your chin, then move it forward and down toward the person.", difficulty: "easy" },
+  "Please":     { description: "Place your flat hand on your chest and move it in a circle.", difficulty: "easy" },
+  "Sorry":      { description: "Make a fist, place it on your chest, and move it in a circle.", difficulty: "easy" },
+  "Yes":        { description: "Make a fist and nod it up and down, like a head nodding yes.", difficulty: "easy" },
+  "No":         { description: "Extend your index and middle fingers, then snap them closed to your thumb twice.", difficulty: "easy" },
+  "I Love You": { description: "Extend your thumb, index finger, and pinky finger. Hold them up together — this is the ILY sign.", difficulty: "easy" },
+  "Help":       { description: "Make a fist (thumb up) and place it on your flat other hand. Lift both hands upward together.", difficulty: "medium" },
+  "Stop":       { description: "Hold one hand flat, palm up. Bring your other flat hand down sharply onto it like a karate chop.", difficulty: "easy" },
+  "More":       { description: "Bring all your fingertips together on both hands, then tap the fingertips of both hands together twice.", difficulty: "medium" },
+  "Good":       { description: "Touch your flat hand to your chin, then move it forward and down into your other flat open hand.", difficulty: "easy" },
+  "Bad":        { description: "Touch your flat hand to your chin, then flip it downward away from you.", difficulty: "easy" },
+  "Water":      { description: "Make a W shape (3 fingers up) and tap it to your chin twice.", difficulty: "medium" },
+  "Eat":        { description: "Bring your fingertips together and tap them to your mouth twice, like putting food in your mouth.", difficulty: "easy" },
+  "Friend":     { description: "Hook your index fingers together, first one way then the other, linking them like friendship.", difficulty: "medium" },
+};
+
 // Real hand sign photos from Wikimedia Commons (orange background series)
 // 7 letters missing from photo series use clean SVG illustrations as fallback
 const LETTER_IMAGES = {
@@ -165,31 +183,51 @@ function SignCard({ label, sign, imageUrl, idx, total, onPrev, onNext }) {
   );
 }
 
+function WordsGrid({ items, idx, onSelect }) {
+  return (
+    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+      {items.map((word, i) => (
+        <button key={word} onClick={() => onSelect(i)}
+          className={`py-2 px-3 rounded-lg text-sm font-medium transition-all text-left ${
+            i === idx ? "bg-sky-500 text-white" : "bg-slate-800 text-slate-300 hover:bg-slate-700"
+          }`}>
+          {word}
+        </button>
+      ))}
+    </div>
+  );
+}
+
 export default function LearnMode() {
   const [tab, setTab] = useState("letters");
   const [filter, setFilter] = useState("all");
   const [idx, setIdx] = useState(0);
 
   const isLetters = tab === "letters";
+  const isNumbers = tab === "numbers";
+  const isWords   = tab === "words";
+
   const allKeys = isLetters
     ? Object.keys(ASL_LETTERS).sort()
-    : ["0","1","2","3","4","5","6","7","8","9"];
+    : isNumbers
+    ? ["0","1","2","3","4","5","6","7","8","9"]
+    : Object.keys(ASL_WORDS);
 
   const filtered = isLetters && filter !== "all"
     ? allKeys.filter((k) => ASL_LETTERS[k]?.difficulty === filter)
     : allKeys;
 
-  const key = filtered[idx];
-  const sign = isLetters ? ASL_LETTERS[key] : ASL_NUMBERS[Number(key)];
-  const imageUrl = isLetters ? LETTER_IMAGES[key] : NUMBER_IMAGES[Number(key)];
+  const key  = filtered[idx];
+  const sign = isLetters ? ASL_LETTERS[key] : isNumbers ? ASL_NUMBERS[Number(key)] : ASL_WORDS[key];
+  const imageUrl = isLetters ? LETTER_IMAGES[key] : isNumbers ? NUMBER_IMAGES[Number(key)] : null;
 
   useEffect(() => setIdx(0), [tab, filter]);
 
   return (
     <div className="flex flex-col gap-6">
-      {/* Letters / Numbers tabs */}
-      <div className="flex gap-2">
-        {["letters", "numbers"].map((t) => (
+      {/* Tab switcher */}
+      <div className="flex gap-2 flex-wrap">
+        {["letters", "numbers", "words"].map((t) => (
           <button key={t} onClick={() => setTab(t)}
             className={`px-4 py-1.5 rounded-lg text-sm font-semibold capitalize transition-colors ${
               tab === t ? "bg-sky-500 text-white" : "bg-slate-800 text-slate-400 hover:bg-slate-700"
@@ -214,7 +252,10 @@ export default function LearnMode() {
       )}
 
       {/* Grid */}
-      <SignGrid items={filtered} idx={idx} onSelect={setIdx} />
+      {isWords
+        ? <WordsGrid items={filtered} idx={idx} onSelect={setIdx} />
+        : <SignGrid items={filtered} idx={idx} onSelect={setIdx} />
+      }
 
       {/* Card */}
       {key !== undefined && sign && (

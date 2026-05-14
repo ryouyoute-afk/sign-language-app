@@ -1,14 +1,16 @@
 import { useState } from "react";
-import { Hand, BookOpen, Dumbbell, Scan } from "lucide-react";
+import { Hand, BookOpen, Dumbbell, Scan, BrainCircuit } from "lucide-react";
 import Camera from "./components/Camera";
 import SignDisplay from "./components/SignDisplay";
 import LearnMode from "./components/LearnMode";
 import PracticeMode from "./components/PracticeMode";
+import QuizMode from "./components/QuizMode";
 
 const TABS = [
   { id: "recognize", label: "Recognize", icon: Scan },
-  { id: "learn", label: "Learn", icon: BookOpen },
-  { id: "practice", label: "Practice", icon: Dumbbell },
+  { id: "learn",     label: "Learn",     icon: BookOpen },
+  { id: "quiz",      label: "Quiz",      icon: BrainCircuit },
+  { id: "practice",  label: "Practice",  icon: Dumbbell },
 ];
 
 export default function App() {
@@ -31,7 +33,7 @@ export default function App() {
           </div>
 
           {/* Tab nav */}
-          <nav className="flex gap-1">
+          <nav className="flex gap-1 flex-wrap justify-end">
             {TABS.map(({ id, label, icon: Icon }) => (
               <button
                 key={id}
@@ -55,15 +57,11 @@ export default function App() {
         {tab === "recognize" && (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="flex flex-col gap-2">
-              <h2 className="text-sm font-semibold text-slate-500 uppercase tracking-wider">
-                Live Camera
-              </h2>
+              <h2 className="text-sm font-semibold text-slate-500 uppercase tracking-wider">Live Camera</h2>
               <Camera onResult={setResult} />
             </div>
             <div className="flex flex-col gap-2">
-              <h2 className="text-sm font-semibold text-slate-500 uppercase tracking-wider">
-                Detection
-              </h2>
+              <h2 className="text-sm font-semibold text-slate-500 uppercase tracking-wider">Detection</h2>
               <SignDisplay result={result} />
             </div>
           </div>
@@ -71,17 +69,24 @@ export default function App() {
 
         {tab === "learn" && (
           <div>
-            <h2 className="text-xl font-bold text-white mb-4">ASL Alphabet</h2>
+            <h2 className="text-xl font-bold text-white mb-1">Learn ASL</h2>
+            <p className="text-slate-400 text-sm mb-6">Browse letters, numbers, and common words.</p>
             <LearnMode />
+          </div>
+        )}
+
+        {tab === "quiz" && (
+          <div>
+            <h2 className="text-xl font-bold text-white mb-1">Quiz</h2>
+            <p className="text-slate-400 text-sm mb-6">Look at the hand sign and pick the correct letter. 10 questions!</p>
+            <QuizMode />
           </div>
         )}
 
         {tab === "practice" && (
           <div>
-            <h2 className="text-xl font-bold text-white mb-4">Practice Mode</h2>
-            <p className="text-slate-400 text-sm mb-6">
-              Sign the target letter and hold it for {2} seconds to score a point.
-            </p>
+            <h2 className="text-xl font-bold text-white mb-1">Practice</h2>
+            <p className="text-slate-400 text-sm mb-6">Sign the target letter and hold it for 2 seconds to score a point.</p>
             <PracticeMode />
           </div>
         )}
