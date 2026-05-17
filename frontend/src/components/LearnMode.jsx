@@ -115,7 +115,7 @@ const NUMBER_IMAGES = {
 function SignImage({ label, src, isGif }) {
   const [failed, setFailed] = useState(false);
   return (
-    <div className={`flex items-center justify-center w-48 h-48 rounded-2xl border flex-shrink-0 overflow-hidden ${
+    <div className={`flex items-center justify-center w-full sm:w-48 h-48 rounded-2xl border flex-shrink-0 overflow-hidden ${
       isGif ? "bg-black border-slate-600" : "bg-white border-slate-200"
     }`}>
       {src && !failed ? (
@@ -134,7 +134,7 @@ function SignImage({ label, src, isGif }) {
 
 function SignGrid({ items, idx, onSelect }) {
   return (
-    <div className="grid grid-cols-7 gap-1.5">
+    <div className="grid grid-cols-6 sm:grid-cols-7 gap-1.5">
       {items.map((key, i) => (
         <button
           key={key}

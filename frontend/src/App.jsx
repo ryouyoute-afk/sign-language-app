@@ -21,27 +21,40 @@ export default function App() {
     <div className="min-h-screen bg-slate-950">
       {/* Header */}
       <header className="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-10">
-        <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
+        <div className="max-w-5xl mx-auto px-4 py-3">
+          {/* Logo row */}
+          <div className="flex items-center gap-2.5 mb-2 sm:mb-0">
             <div className="p-1.5 rounded-lg bg-sky-500/20">
               <Hand size={20} className="text-sky-400" />
             </div>
             <span className="font-bold text-white text-lg tracking-tight">SignAI</span>
-            <span className="text-xs px-2 py-0.5 rounded-full bg-sky-500/20 text-sky-400 font-medium">
-              ASL
-            </span>
+            <span className="text-xs px-2 py-0.5 rounded-full bg-sky-500/20 text-sky-400 font-medium">ASL</span>
           </div>
 
-          {/* Tab nav */}
-          <nav className="flex gap-1 flex-wrap justify-end">
+          {/* Tab nav — full width row on mobile, inline on desktop */}
+          <nav className="flex sm:hidden w-full border-t border-slate-800 mt-2 pt-2 gap-1">
+            {TABS.map(({ id, label, icon: Icon }) => (
+              <button
+                key={id}
+                onClick={() => setTab(id)}
+                className={`flex-1 flex flex-col items-center gap-0.5 py-1.5 rounded-lg text-xs font-medium transition-all ${
+                  tab === id ? "bg-sky-500 text-white" : "text-slate-400"
+                }`}
+              >
+                <Icon size={18} />
+                <span>{label}</span>
+              </button>
+            ))}
+          </nav>
+
+          {/* Desktop nav — hidden on mobile */}
+          <nav className="hidden sm:flex absolute top-3 right-4 gap-1">
             {TABS.map(({ id, label, icon: Icon }) => (
               <button
                 key={id}
                 onClick={() => setTab(id)}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${
-                  tab === id
-                    ? "bg-sky-500 text-white"
-                    : "text-slate-400 hover:text-slate-200 hover:bg-slate-800"
+                  tab === id ? "bg-sky-500 text-white" : "text-slate-400 hover:text-slate-200 hover:bg-slate-800"
                 }`}
               >
                 <Icon size={15} />
@@ -53,7 +66,7 @@ export default function App() {
       </header>
 
       {/* Main */}
-      <main className="max-w-5xl mx-auto px-4 py-8">
+      <main className="max-w-5xl mx-auto px-4 py-6">
         {tab === "recognize" && (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="flex flex-col gap-2">
@@ -70,7 +83,7 @@ export default function App() {
         {tab === "learn" && (
           <div>
             <h2 className="text-xl font-bold text-white mb-1">Learn ASL</h2>
-            <p className="text-slate-400 text-sm mb-6">Browse letters, numbers, and common words.</p>
+            <p className="text-slate-400 text-sm mb-4">Browse letters, numbers, and common words.</p>
             <LearnMode />
           </div>
         )}
@@ -78,7 +91,7 @@ export default function App() {
         {tab === "quiz" && (
           <div>
             <h2 className="text-xl font-bold text-white mb-1">Quiz</h2>
-            <p className="text-slate-400 text-sm mb-6">Look at the hand sign and pick the correct letter. 10 questions!</p>
+            <p className="text-slate-400 text-sm mb-4">Look at the hand sign and pick the correct letter. 10 questions!</p>
             <QuizMode />
           </div>
         )}
@@ -86,7 +99,7 @@ export default function App() {
         {tab === "practice" && (
           <div>
             <h2 className="text-xl font-bold text-white mb-1">Practice</h2>
-            <p className="text-slate-400 text-sm mb-6">Sign the target letter and hold it for 2 seconds to score a point.</p>
+            <p className="text-slate-400 text-sm mb-4">Sign the target letter and hold it for 2 seconds to score a point.</p>
             <PracticeMode />
           </div>
         )}

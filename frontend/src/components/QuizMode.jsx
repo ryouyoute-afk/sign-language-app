@@ -156,7 +156,7 @@ export default function QuizMode() {
       {/* Question */}
       <p className="text-slate-400 text-sm text-center">What letter is this hand sign?</p>
       <div className="flex justify-center">
-        <div className="w-56 h-56 rounded-2xl bg-white overflow-hidden border-2 border-slate-700">
+        <div className="w-full max-w-xs h-56 rounded-2xl bg-white overflow-hidden border-2 border-slate-700">
           <img
             src={LETTER_IMAGES[question.letter]}
             alt="ASL hand sign"
