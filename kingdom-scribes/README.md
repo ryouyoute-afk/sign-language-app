@@ -42,6 +42,7 @@ Read in order — each file builds on the last. If you only read three, read **0
 | 10 | [90-Day Roadmap & Growth Phases](docs/10-90-day-roadmap.md) | What to do Monday, and the road to $1M+ |
 | 11 | [Scoreboard & KPIs](docs/11-scoreboard-kpis.md) | The weekly numbers that run the business |
 | 12 | [Risks & Stewardship](docs/12-risks-and-stewardship.md) | Where this breaks, and the line between marketing and ministry |
+| 13 | [Trial Email Sequences](docs/13-trial-email-sequences.md) | The actual 7-day trial emails (both tiers) that drive the day-one win |
 
 ---
 
