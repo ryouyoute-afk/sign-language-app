@@ -30,7 +30,7 @@
 ### Funnel 1 — The Seeker Funnel (volume + mission)
 1. **Traffic:** organic content answering salvation questions / cold ads.
 2. **Opt-in page:** *"What did the New Testament church really believe about being saved? Free 5-part Acts 2:38 Guide."* Email only.
-3. **Instant delivery + email nurture (7–10 emails):** deliver the 5 parts, then a changed-life testimony, then the membership invite with the 30-day guarantee. Soft tripwire after opt-in.
+3. **Instant delivery + email nurture (7–10 emails):** deliver the 5 parts, then a changed-life testimony, then the membership invite with the **7-day risk-free, no-obligation trial**. Soft tripwire after opt-in.
 4. **Conversion offer:** Seeker Membership — anchored at 27¢/day, annual nudged.
 5. **Ascension:** members who engage with teaching/leadership content → Minister License invite.
 
@@ -42,18 +42,18 @@
 ### Funnel 2 — The Minister Funnel (profit)
 1. **Traffic:** warm outreach (primary) + content aimed at Pastor Mark + retargeting.
 2. **Give-first step:** free sample pack (10 sermon outlines / 5 lessons) — the minister-specific lead magnet.
-3. **Sales conversation or sales page:** lead with the *pain* ("building from scratch at midnight"), stack the offer ([03](03-grand-slam-offer.md)), present the **Doctrinal Soundness + "Ready This Sunday"** guarantees.
+3. **Sales conversation or sales page:** lead with the *pain* ("building from scratch at midnight"), stack the offer ([03](03-grand-slam-offer.md)), and present the **7-day risk-free, no-obligation trial** + the **Doctrinal Soundness Promise**.
 4. **Conversion offer:** Minister License, annual pushed ($397 = ~$1/day, saves 5+ hrs/week).
 5. **Ascension:** active license-holders with teams → Church/Multi-Seat License.
 
 **Target conversion benchmarks:**
-- Sample-pack download → license trial/buy: **10–20%** (warm)
-- Trial → paid (if a trial is offered): **50%+** with the day-one win
+- Sample-pack download → starts 7-day trial: **10–20%** (warm)
+- 7-day trial → paid (keeps past day 7): **50%+** when the day-one win lands inside the trial window
 - License → Church/Multi-seat (over time): **10–15%**
 
 ## Conversion levers (in priority order of impact)
 
-1. **The guarantee** — most powerful single lever. Make the risk-reversal impossible to miss on every sales page.
+1. **The 7-day risk-free trial** — most powerful single lever. Make the no-obligation risk-reversal impossible to miss on every sales page, paired with the Doctrinal Soundness Promise.
 2. **The day-one win** — onboarding that delivers a usable resource / first devotional in minutes. Drives both conversion *and* retention.
 3. **Proof** — real testimonials (pastors who saved time, seekers who received the Holy Ghost, parents whose kids love the book). Faceless-compatible: the proof is the *fruit*, not a guru.
 4. **The offer stack visualization** — show the pile of value next to the small price.

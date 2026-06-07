@@ -79,13 +79,13 @@ Flagship *The Day Everything Changed ("A Lydia Story")*, ages 3–5, around Acts
 
 ## Risk reversal (guarantees) — the same across offers
 
-Hormozi: a bold guarantee is the single biggest conversion lever. Ours, tuned to the mission:
+Hormozi: a bold risk-reversal is the single biggest conversion lever. The foundation is **your existing offer**, reinforced by the doctrinal promise.
 
-1. **The Doctrinal Soundness Guarantee (unconditional):** *"Every resource is written from a KJV-only Apostolic position. If you ever find a line that contradicts the apostles' doctrine, tell us — we'll fix it and credit your account."* (Builds the core trust ministers need.)
-2. **The "Ready This Sunday" Guarantee (Minister License):** *"If you can't pull a usable, brandable resource within your first 10 minutes, we'll refund your first month and help you personally."*
-3. **30-Day Money-Back (Seeker & Kids):** *"Grow for 30 days. If it doesn't feed your soul, full refund — keep the free guide."*
+1. **The 7-Day Risk-Free, No-Obligation Trial (the core mechanism — already live):** *"Try it free for 7 days. Use it, brand it, hand it to your church this Sunday. If it's not for you, cancel before day 7 and pay nothing — no obligation."* This is the primary fear-remover: the buyer experiences the value before any money changes hands.
+   - **The job of the trial is to deliver a real win inside 7 days.** Onboarding must get a pastor to download + brand one usable resource (or a seeker to a first devotional) in the first session. A trial only converts when the value lands before the clock runs out — so the trial and the day-one win work as a team ([07 — Funnels](07-funnels-and-conversion.md)).
+2. **The Doctrinal Soundness Promise (unconditional, ongoing):** *"Every resource is written from a KJV-only Apostolic position. If you ever find a line that contradicts the apostles' doctrine, tell us — we'll fix it and credit your account."* This is the trust a minister needs before he hands anything to his flock; it complements the trial rather than replacing it.
 
-> These are honored, not theater (see [01 — Guardrails](01-mission-and-doctrinal-guardrails.md)).
+> Both are honored, not theater (see [01 — Guardrails](01-mission-and-doctrinal-guardrails.md)). The 7-day trial removes the *money* risk up front; the doctrinal promise removes the *trust* risk for the long haul.
 
 ## Scarcity & urgency — only the *honest* kind
 
@@ -96,6 +96,6 @@ Hormozi: a bold guarantee is the single biggest conversion lever. Ours, tuned to
 
 ## The "feel stupid saying no" test
 
-For Pastor Mark: *"For about a dollar a day, I get a constantly-growing library of vetted Apostolic sermons, studies, and kids' lessons I can brand as my own and use this Sunday — guaranteed sound or it's fixed and credited — and it saves me 5+ hours a week."*
+For Pastor Mark: *"I can try it free for 7 days with no obligation, and in that week I get a constantly-growing library of vetted Apostolic sermons, studies, and kids' lessons I can brand as my own and use this Sunday — sound or they fix it and credit me — and it saves me 5+ hours a week. For about a dollar a day after that, why would I cancel?"*
 
 That's the bar. Every offer page must make the value pile so tall the price looks like a rounding error.
