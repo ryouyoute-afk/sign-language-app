@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kingdom Scribes — Weekly Tracker</title>
+<style>
+  :root { --ink:#1a1a1a; --line:#444; --soft:#888; --band:#f0ede6; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: Georgia, "Times New Roman", serif;
+    color: var(--ink);
+    margin: 0;
+    padding: 32px;
+    line-height: 1.4;
+    background: #fff;
+  }
+  .page { max-width: 760px; margin: 0 auto 48px; }
+  header.brand {
+    text-align: center;
+    border-bottom: 3px double var(--line);
+    padding-bottom: 14px;
+    margin-bottom: 22px;
+  }
+  header.brand h1 { font-size: 26px; margin: 0; letter-spacing: 1px; }
+  header.brand .verse { font-style: italic; color: var(--soft); font-size: 12px; margin-top: 6px; }
+  h2 {
+    font-size: 18px; margin: 28px 0 6px;
+    border-bottom: 1px solid var(--line); padding-bottom: 4px;
+  }
+  .hint { font-size: 12px; color: var(--soft); margin: 0 0 12px; font-style: italic; }
+  .meta { display: flex; gap: 24px; margin: 10px 0 18px; font-size: 14px; }
+  .meta .fill { border-bottom: 1px solid var(--line); min-width: 140px; display: inline-block; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 18px; font-size: 13px; }
+  th, td { border: 1px solid var(--line); padding: 8px 6px; text-align: left; vertical-align: middle; }
+  th { background: var(--band); font-size: 12px; text-transform: uppercase; letter-spacing: .5px; }
+  td.row-h { height: 30px; }
+  .ck { text-align: center; width: 46px; }
+  .num { text-align: center; width: 60px; }
+  .checklist { list-style: none; padding: 0; margin: 8px 0 18px; }
+  .checklist li { padding: 7px 0; border-bottom: 1px dotted #bbb; font-size: 14px; }
+  .checklist li::before { content: "☐"; font-size: 18px; margin-right: 10px; vertical-align: -1px; }
+  .big-goal {
+    background: var(--band); border-left: 4px solid var(--line);
+    padding: 10px 14px; font-size: 14px; margin: 10px 0 18px;
+  }
+  .footer-note { font-size: 11px; color: var(--soft); text-align: center; margin-top: 8px; }
+  @media print {
+    body { padding: 0; }
+    .page { margin: 0; max-width: 100%; padding: 18mm 14mm; page-break-after: always; }
+    .page:last-child { page-break-after: auto; }
+    .no-print { display: none; }
+    h2 { margin-top: 14px; }
+  }
+  .no-print {
+    max-width: 760px; margin: 0 auto 24px; padding: 12px 16px;
+    background: #fff8e1; border: 1px solid #e0c97f; border-radius: 6px; font-size: 13px;
+    font-family: -apple-system, system-ui, sans-serif;
+  }
+</style>
+</head>
+<body>
+
+<div class="no-print">
+  <strong>How to print:</strong> Press <strong>Ctrl/Cmd + P</strong> → choose your printer, or “Save as PDF.”
+  Each section prints on its own page. This yellow note won’t print.
+</div>
+
+<!-- PAGE 1: PASTOR OUTREACH LIST -->
+<section class="page">
+  <header class="brand">
+    <h1>KINGDOM SCRIBES</h1>
+    <div class="verse">“…things new and old.” — Matthew 13:52</div>
+  </header>
+
+  <h2>Pastor Outreach List</h2>
+  <p class="hint">The most important sheet. Reaching pastors is where the growth comes from. Fill in 20 and work the list.</p>
+
+  <div class="big-goal"><strong>This week’s goal:</strong> message ______ pastors · send ______ sample packs</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:26px">#</th>
+        <th>Pastor / Church</th>
+        <th style="width:150px">Contact (phone / email)</th>
+        <th class="ck">Msg<br>sent</th>
+        <th class="ck">Replied</th>
+        <th class="ck">Sample<br>sent</th>
+        <th class="ck">Started<br>trial</th>
+        <th class="ck">Paid<br>member</th>
+      </tr>
+    </thead>
+    <tbody id="pastor-rows"></tbody>
+  </table>
+  <div class="footer-note">Tip: when someone replies “yes,” send your best 3 sermon outlines + a lesson the same day.</div>
+</section>
+
+<!-- PAGE 2: WEEKLY NUMBERS -->
+<section class="page">
+  <header class="brand">
+    <h1>KINGDOM SCRIBES</h1>
+    <div class="verse">Weekly Numbers — one line per week</div>
+  </header>
+
+  <h2>Weekly Scoreboard</h2>
+  <p class="hint">Every Monday, fill in one row. Watch the last two columns grow — that’s the business working.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:90px">Week of</th>
+        <th class="num">Pastors<br>messaged</th>
+        <th class="num">Replies</th>
+        <th class="num">Free guide<br>sign-ups</th>
+        <th class="num">Videos<br>posted</th>
+        <th class="num">New<br>members<br>($12)</th>
+        <th class="num">New<br>ministers<br>($47)</th>
+      </tr>
+    </thead>
+    <tbody id="week-rows"></tbody>
+  </table>
+
+  <h2>What the numbers tell you</h2>
+  <ul class="checklist" style="list-style:none">
+    <li style="border:none">If <strong>pastors messaged</strong> is low → you’re not reaching out enough. Send more.</li>
+    <li style="border:none">If you message lots but get few <strong>replies</strong> → change your message.</li>
+    <li style="border:none">If you get replies but few <strong>members</strong> → improve the free trial’s first-day win.</li>
+    <li style="border:none">If <strong>new ministers</strong> grows each week → it’s working. Do more of the same.</li>
+  </ul>
+</section>
+
+<!-- PAGE 3: WEEKLY CHECKLIST -->
+<section class="page">
+  <header class="brand">
+    <h1>KINGDOM SCRIBES</h1>
+    <div class="verse">The 5 Things — every week</div>
+  </header>
+
+  <div class="meta">
+    <div>Week of: <span class="fill">&nbsp;</span></div>
+  </div>
+
+  <h2>Do these 5 things this week</h2>
+  <ul class="checklist">
+    <li>Messaged <strong>20 pastors</strong> with the free-sample offer</li>
+    <li>Sent <strong>sample packs</strong> to everyone who replied “yes”</li>
+    <li>Checked the free <strong>Acts 2:38 Guide</strong> sign-up is easy to find</li>
+    <li>Posted at least <strong>2 short videos</strong> answering a salvation question</li>
+    <li>Filled in this week’s row on the <strong>Weekly Scoreboard</strong></li>
+  </ul>
+
+  <h2>The one rule</h2>
+  <div class="big-goal">
+    A ministry that pays for itself — not a business wearing a cross.
+    The gospel stays <strong>free</strong>. The doctrine stays <strong>sound</strong>. No tricks.
+    If growing means breaking this — don’t.
+  </div>
+
+  <h2>Notes / answered prayers this week</h2>
+  <table><tbody>
+    <tr><td class="row-h"></td></tr>
+    <tr><td class="row-h"></td></tr>
+    <tr><td class="row-h"></td></tr>
+    <tr><td class="row-h"></td></tr>
+    <tr><td class="row-h"></td></tr>
+  </tbody></table>
+
+  <div class="footer-note">Print a fresh copy of this page each week.</div>
+</section>
+
+<script>
+  // Generate blank rows so the printed sheet has lines to write on.
+  const p = document.getElementById('pastor-rows');
+  for (let i = 1; i <= 20; i++) {
+    p.insertAdjacentHTML('beforeend',
+      `<tr><td>${i}</td><td class="row-h"></td><td></td><td class="ck"></td><td class="ck"></td><td class="ck"></td><td class="ck"></td><td class="ck"></td></tr>`);
+  }
+  const w = document.getElementById('week-rows');
+  for (let i = 0; i < 12; i++) {
+    w.insertAdjacentHTML('beforeend',
+      `<tr><td class="row-h"></td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td></tr>`);
+  }
+</script>
+</body>
+</html>
