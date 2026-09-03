@@ -1,0 +1,646 @@
+<title>Cardinal Lane Early Learning</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..700,0..100,0..1&family=Karla:wght@300..800&display=swap">
+<style>
+:root{
+  --paper:#F7F5EE;
+  --surface:#FFFDF7;
+  --surface-2:#EEECE1;
+  --ink:#1B2620;
+  --ink-2:#455349;
+  --ink-3:#6D7B72;
+  --line:#DBD8CB;
+  --line-soft:#E7E4D8;
+  --pine:#2E5245;
+  --pine-2:#3F6E5C;
+  --marigold:#D9922B;
+  --marigold-soft:#F4E3C4;
+  --cardinal:#B23F2E;
+  --btn-bg:#2E5245;
+  --btn-fg:#FBFAF3;
+  --band-bg:#2E5245;
+  --band-fg:#E7EFE9;
+  --band-dim:#A9C2B5;
+  --band-line:rgba(255,255,255,.16);
+  --sky-top:#CFE2E6;
+  --sky-bottom:#EDE7D6;
+  --hill-far:#9FBCA9;
+  --hill-near:#3F6E5C;
+  --sun:#EBB558;
+  --trunk:#7A5A3C;
+  --shadow:0 1px 2px rgba(27,38,32,.05), 0 8px 24px -12px rgba(27,38,32,.18);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#121714;
+    --surface:#1A211C;
+    --surface-2:#222B25;
+    --ink:#ECEFE8;
+    --ink-2:#B2BEB6;
+    --ink-3:#899589;
+    --line:#2C3730;
+    --line-soft:#242E28;
+    --pine:#84C0A6;
+    --pine-2:#A0D6BC;
+    --marigold:#EDB25E;
+    --marigold-soft:#3A2F1B;
+    --cardinal:#E0705C;
+    --btn-bg:#84C0A6;
+    --btn-fg:#10201A;
+    --band-bg:#1A211C;
+    --band-fg:#E4EAE4;
+    --band-dim:#94A79A;
+    --band-line:rgba(255,255,255,.10);
+    --sky-top:#1E2C33;
+    --sky-bottom:#33302A;
+    --hill-far:#365049;
+    --hill-near:#1F3A32;
+    --sun:#D99A45;
+    --trunk:#4E3B29;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -14px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#121714;
+  --surface:#1A211C;
+  --surface-2:#222B25;
+  --ink:#ECEFE8;
+  --ink-2:#B2BEB6;
+  --ink-3:#899589;
+  --line:#2C3730;
+  --line-soft:#242E28;
+  --pine:#84C0A6;
+  --pine-2:#A0D6BC;
+  --marigold:#EDB25E;
+  --marigold-soft:#3A2F1B;
+  --cardinal:#E0705C;
+  --btn-bg:#84C0A6;
+  --btn-fg:#10201A;
+  --band-bg:#1A211C;
+  --band-fg:#E4EAE4;
+  --band-dim:#94A79A;
+  --band-line:rgba(255,255,255,.10);
+  --sky-top:#1E2C33;
+  --sky-bottom:#33302A;
+  --hill-far:#365049;
+  --hill-near:#1F3A32;
+  --sun:#D99A45;
+  --trunk:#4E3B29;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -14px rgba(0,0,0,.7);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Karla","Helvetica Neue",Arial,sans-serif;
+  font-size:17px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{
+  font-family:"Fraunces","Iowan Old Style",Georgia,serif;
+  font-variation-settings:"SOFT" 40,"WONK" 1;
+  font-weight:600;
+  line-height:1.08;
+  text-wrap:balance;
+  margin:0;
+  letter-spacing:-.012em;
+}
+p{margin:0}
+a{color:var(--pine);text-decoration-thickness:1px;text-underline-offset:3px}
+:focus-visible{outline:2px solid var(--pine);outline-offset:3px;border-radius:3px}
+
+.wrap{width:min(1120px,calc(100% - 44px));margin-inline:auto}
+.eyebrow{
+  font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--pine);margin-bottom:14px;
+}
+section{scroll-margin-top:84px}
+.sec{padding:76px 0}
+.sec-head{max-width:62ch;margin-bottom:40px}
+.sec-head h2{font-size:clamp(1.75rem,1.2rem+1.7vw,2.6rem)}
+.sec-head p{margin-top:14px;color:var(--ink-2);max-width:60ch}
+
+/* ---------- header ---------- */
+.top{
+  position:sticky;top:0;z-index:20;
+  background:color-mix(in srgb,var(--paper) 88%,transparent);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line-soft);
+}
+.top-in{display:flex;align-items:center;gap:24px;height:66px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink);margin-right:auto}
+.brand-mark{width:30px;height:30px;flex:none}
+.brand-name{font-family:"Fraunces",Georgia,serif;font-variation-settings:"SOFT" 40,"WONK" 1;font-weight:600;font-size:19px;letter-spacing:-.01em}
+.brand-sub{display:block;font-family:"Karla",sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);margin-top:1px}
+.nav{display:flex;gap:24px}
+.nav a{color:var(--ink-2);text-decoration:none;font-size:14.5px;font-weight:600}
+.nav a:hover{color:var(--pine)}
+@media (max-width:940px){.nav{display:none}}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:11px 20px;border-radius:999px;border:1px solid transparent;
+  font:inherit;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;
+  background:var(--btn-bg);color:var(--btn-fg);
+  transition:transform .15s ease,filter .15s ease;
+}
+.btn:hover{filter:brightness(1.07);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--pine);color:var(--pine);filter:none}
+.btn-sm{padding:9px 17px;font-size:14px}
+
+/* ---------- hero ---------- */
+.hero{padding:66px 0 60px}
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(2.5rem,1.5rem+3.6vw,4.15rem);font-variation-settings:"SOFT" 55,"WONK" 1}
+.hero-lede{margin-top:22px;font-size:19px;color:var(--ink-2);max-width:46ch}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 34px;margin-top:38px;padding-top:22px;border-top:1px solid var(--line);max-width:44ch}
+.fact dt{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.fact dd{margin:3px 0 0;font-family:"Fraunces",Georgia,serif;font-variation-settings:"SOFT" 40,"WONK" 1;font-size:19px;font-weight:600}
+.scene-wrap{position:relative}
+.scene{display:block;width:100%;height:auto;border-radius:20px;box-shadow:var(--shadow)}
+.chip{
+  position:absolute;left:20px;bottom:20px;
+  display:flex;align-items:center;gap:9px;
+  background:var(--surface);color:var(--ink);
+  border:1px solid var(--line);border-radius:999px;
+  padding:9px 16px 9px 12px;font-size:13.5px;font-weight:600;
+  box-shadow:var(--shadow);
+}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--marigold);flex:none}
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:36px}
+  .hero{padding:44px 0 40px}
+}
+
+/* ---------- day ---------- */
+.day{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 56px}
+.slot{display:grid;grid-template-columns:74px 1fr;gap:18px;padding:16px 0;border-top:1px solid var(--line-soft)}
+.slot time{
+  font-variant-numeric:tabular-nums;font-weight:700;font-size:14px;
+  color:var(--pine);letter-spacing:.02em;padding-top:3px;
+}
+.slot h3{font-size:17px;font-family:"Karla",sans-serif;font-weight:700;letter-spacing:0}
+.slot p{color:var(--ink-2);font-size:15px;margin-top:3px}
+@media (max-width:760px){.day{grid-template-columns:1fr}}
+
+/* ---------- classrooms: measuring-tape rail ---------- */
+.rooms{position:relative;padding-left:104px}
+.rooms::before{
+  content:"";position:absolute;left:46px;top:6px;bottom:26px;width:2px;
+  background:var(--line);
+}
+.rooms::after{
+  content:"";position:absolute;left:36px;top:6px;bottom:26px;width:10px;
+  background-image:repeating-linear-gradient(to bottom,var(--line) 0 1px,transparent 1px 13px);
+}
+.room{position:relative;border-top:1px solid var(--line);padding:22px 0;
+  display:grid;grid-template-columns:196px minmax(0,1fr) 252px;gap:28px;align-items:start}
+.room:first-child{border-top:none;padding-top:6px}
+.room::before{
+  content:"";position:absolute;left:-68px;top:34px;width:38px;height:2px;background:var(--pine);
+}
+.room:first-child::before{top:18px}
+.tick{
+  position:absolute;left:-68px;top:10px;width:64px;
+  font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);
+  font-variant-numeric:tabular-nums;
+}
+.room:first-child .tick{top:-6px}
+.room h3{font-size:24px}
+.room-age{font-size:13.5px;font-weight:700;color:var(--marigold);margin-top:5px;letter-spacing:.02em}
+.room-copy{color:var(--ink-2);font-size:15.5px}
+.room-stats{display:flex;gap:22px;margin:0}
+.room-stats div{min-width:0}
+.room-stats dt{font-size:10.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3)}
+.room-stats dd{margin:4px 0 0;white-space:nowrap;font-family:"Fraunces",Georgia,serif;font-variation-settings:"SOFT" 40;font-size:20px;font-weight:600;font-variant-numeric:tabular-nums}
+.rail-note{margin-top:26px;font-size:14px;color:var(--ink-3);max-width:64ch}
+@media (max-width:1000px){
+  .room{grid-template-columns:1fr;gap:14px}
+  .room-stats{gap:30px}
+}
+@media (max-width:800px){
+  .rooms{padding-left:0}
+  .rooms::before,.rooms::after,.room::before,.tick{display:none}
+}
+
+/* ---------- tuition ---------- */
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}
+.table-scroll{overflow-x:auto;border-radius:16px}
+table{border-collapse:collapse;width:100%;min-width:520px;font-variant-numeric:tabular-nums}
+caption{text-align:left;padding:20px 24px 0;font-size:13px;color:var(--ink-3)}
+th,td{text-align:left;padding:14px 24px;border-top:1px solid var(--line-soft)}
+thead th{
+  border-top:none;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);padding-top:20px;
+}
+tbody th{font-weight:700;font-size:15.5px}
+td{font-size:15.5px;color:var(--ink-2)}
+td.num{font-family:"Fraunces",Georgia,serif;font-variation-settings:"SOFT" 40;font-size:18px;font-weight:600;color:var(--ink)}
+.pay{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:34px}
+.pay h3{font-size:17px;font-family:"Karla",sans-serif;font-weight:700;color:var(--pine)}
+.pay p{margin-top:7px;color:var(--ink-2);font-size:15px}
+@media (max-width:800px){.pay{grid-template-columns:1fr;gap:22px}}
+
+/* ---------- safety ---------- */
+.safe{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px 56px}
+.safe > div{padding:20px 0;border-top:1px solid var(--line-soft)}
+.safe h3{font-size:16.5px;font-family:"Karla",sans-serif;font-weight:700}
+.safe p{margin-top:6px;color:var(--ink-2);font-size:15px;max-width:52ch}
+@media (max-width:760px){.safe{grid-template-columns:1fr}}
+
+/* ---------- questions ---------- */
+.qa{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 56px}
+.qa > div{padding:22px 0;border-top:1px solid var(--line-soft)}
+.qa h3{font-size:16.5px;font-family:"Karla",sans-serif;font-weight:700;color:var(--pine)}
+.qa p{margin-top:7px;color:var(--ink-2);font-size:15px;max-width:50ch}
+@media (max-width:760px){.qa{grid-template-columns:1fr}}
+
+/* ---------- visit ---------- */
+.visit{background:var(--band-bg);color:var(--band-fg);padding:76px 0}
+.visit .eyebrow{color:var(--marigold)}
+.visit h2{font-size:clamp(1.75rem,1.2rem+1.7vw,2.6rem)}
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;margin-top:40px}
+.contact{display:grid;gap:0}
+.contact > div{padding:16px 0;border-top:1px solid var(--band-line)}
+.contact dt{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--band-dim)}
+.contact dd{margin:5px 0 0;font-size:16.5px}
+.contact dd a{color:var(--band-fg)}
+.contact .big{font-family:"Fraunces",Georgia,serif;font-variation-settings:"SOFT" 40,"WONK" 1;font-size:24px;font-weight:600}
+form{background:var(--surface);color:var(--ink);border-radius:18px;padding:28px}
+form h3{font-size:21px}
+form p.sub{margin-top:6px;color:var(--ink-3);font-size:14px}
+.field{display:grid;gap:6px;margin-top:16px}
+label{font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3)}
+input,select,textarea{
+  font:inherit;font-size:15.5px;color:var(--ink);
+  background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:11px 13px;width:100%;
+}
+textarea{resize:vertical;min-height:78px}
+form .btn{width:100%;margin-top:20px}
+.form-note{margin-top:12px;font-size:13px;color:var(--ink-3);text-align:center}
+@media (max-width:860px){.visit-grid{grid-template-columns:1fr;gap:38px}}
+
+/* ---------- footer ---------- */
+.foot{border-top:1px solid var(--line);padding:38px 0 46px;font-size:14px;color:var(--ink-3)}
+.foot-top{display:flex;flex-wrap:wrap;gap:18px 40px;align-items:baseline;justify-content:space-between}
+.foot strong{color:var(--ink);font-family:"Fraunces",Georgia,serif;font-variation-settings:"SOFT" 40,"WONK" 1;font-size:17px;font-weight:600}
+.sample{
+  margin-top:24px;padding:14px 18px;border-radius:12px;
+  background:var(--marigold-soft);color:var(--ink-2);font-size:13.5px;line-height:1.55;
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition:none!important}
+}
+.rays{transform-origin:498px 128px;animation:spin 90s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="#top">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+        <circle cx="20" cy="20" r="19" fill="var(--pine)"></circle>
+        <path d="M20 9c3.2 2.4 5 5.4 5 8.6 0 3.4-2.3 6.1-5 8.4-2.7-2.3-5-5-5-8.4C15 14.4 16.8 11.4 20 9z" fill="var(--marigold)"></path>
+        <path d="M20 26v6" stroke="var(--band-fg)" stroke-width="2" stroke-linecap="round"></path>
+      </svg>
+      <span>
+        <span class="brand-name">Cardinal Lane</span>
+        <span class="brand-sub">Early Learning</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#day">A day here</a>
+      <a href="#classrooms">Classrooms</a>
+      <a href="#tuition">Tuition</a>
+      <a href="#safety">Safety</a>
+      <a href="#questions">Questions</a>
+    </nav>
+    <a class="btn btn-sm" href="#visit">Schedule a tour</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="wrap hero">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">Millbrook, Ohio &middot; Licensed child care</p>
+        <h1>A small center where your child is known by name.</h1>
+        <p class="hero-lede">Cardinal Lane is a seven-classroom early learning center for children six weeks through sixth grade &mdash; full-day care, an Ohio Early Learning Standards curriculum, and teachers who stay.</p>
+        <div class="hero-cta">
+          <a class="btn" href="#visit">Schedule a tour</a>
+          <a class="btn btn-ghost" href="tel:+15550142200">(555) 014-2200</a>
+        </div>
+        <dl class="facts">
+          <div class="fact"><dt>Ages</dt><dd>6 wks &ndash; 12 yrs</dd></div>
+          <div class="fact"><dt>Hours</dt><dd>6:30a &ndash; 6:00p</dd></div>
+          <div class="fact"><dt>Step Up To Quality</dt><dd>5 stars</dd></div>
+          <div class="fact"><dt>Vouchers</dt><dd>PFCC accepted</dd></div>
+        </dl>
+      </div>
+      <div class="scene-wrap">
+        <svg class="scene" viewBox="0 0 640 470" role="img" aria-label="Illustration of a play yard with a maple tree, rolling hills, and a cardinal on a branch">
+          <defs>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="var(--sky-top)"></stop>
+              <stop offset="100%" stop-color="var(--sky-bottom)"></stop>
+            </linearGradient>
+            <clipPath id="frame"><rect x="0" y="0" width="640" height="470" rx="20"></rect></clipPath>
+          </defs>
+          <g clip-path="url(#frame)">
+            <rect x="0" y="0" width="640" height="470" fill="url(#sky)"></rect>
+            <g class="rays" fill="var(--sun)" opacity=".55">
+              <rect x="494" y="46" width="8" height="26" rx="4"></rect>
+              <rect x="494" y="184" width="8" height="26" rx="4"></rect>
+              <rect x="416" y="124" width="26" height="8" rx="4"></rect>
+              <rect x="554" y="124" width="26" height="8" rx="4"></rect>
+            </g>
+            <circle cx="498" cy="128" r="46" fill="var(--sun)"></circle>
+            <path d="M-20 352 Q 130 262 300 330 T 660 300 L660 470 L-20 470 Z" fill="var(--hill-far)"></path>
+            <path d="M-20 400 Q 180 330 360 392 T 660 372 L660 470 L-20 470 Z" fill="var(--hill-near)"></path>
+            <rect x="176" y="250" width="18" height="150" rx="7" fill="var(--trunk)"></rect>
+            <path d="M185 300 L 130 258" stroke="var(--trunk)" stroke-width="9" stroke-linecap="round" fill="none"></path>
+            <circle cx="185" cy="196" r="74" fill="var(--hill-near)"></circle>
+            <circle cx="118" cy="228" r="48" fill="var(--hill-far)"></circle>
+            <circle cx="248" cy="230" r="52" fill="var(--hill-far)"></circle>
+            <circle cx="212" cy="152" r="40" fill="var(--hill-far)" opacity=".85"></circle>
+            <g transform="translate(104 236)">
+              <path d="M14 0 L20 -11 L25 0 Z" fill="var(--cardinal)"></path>
+              <circle cx="20" cy="6" r="8" fill="var(--cardinal)"></circle>
+              <path d="M27 6 L35 9 L27 11 Z" fill="var(--marigold)"></path>
+              <ellipse cx="12" cy="14" rx="14" ry="10" fill="var(--cardinal)"></ellipse>
+              <path d="M-2 12 L-18 6 L-3 18 Z" fill="var(--cardinal)"></path>
+            </g>
+            <circle cx="430" cy="404" r="26" fill="var(--hill-far)" opacity=".7"></circle>
+            <circle cx="474" cy="410" r="18" fill="var(--hill-far)" opacity=".7"></circle>
+            <circle cx="556" cy="398" r="30" fill="var(--hill-far)" opacity=".55"></circle>
+            <g fill="var(--marigold)" opacity=".9">
+              <circle cx="332" cy="418" r="7"></circle>
+              <circle cx="360" cy="432" r="5"></circle>
+              <circle cx="308" cy="438" r="5"></circle>
+            </g>
+          </g>
+        </svg>
+        <p class="chip"><span class="dot"></span>Now enrolling &mdash; two spots in the infant room</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="day" class="wrap sec">
+    <div class="sec-head">
+      <p class="eyebrow">A day here</p>
+      <h2>The rhythm is the curriculum.</h2>
+      <p>Children settle when they know what comes next. Every room runs the same shape of day, adjusted for how long the people in it can hold still.</p>
+    </div>
+    <div class="day">
+      <div class="slot"><time>6:30 am</time><div><h3>Doors open</h3><p>A quiet arrival, a hand-off at the door, and breakfast until 8:00 for anyone who wants it.</p></div></div>
+      <div class="slot"><time>8:15 am</time><div><h3>Morning meeting</h3><p>Songs, the weather, the calendar, and what the day holds. Everyone gets their name said out loud.</p></div></div>
+      <div class="slot"><time>9:00 am</time><div><h3>Centers</h3><p>Blocks, sensory table, dramatic play, art. Teachers pull small groups for letters, counting, and stories.</p></div></div>
+      <div class="slot"><time>10:30 am</time><div><h3>Outside</h3><p>Two fenced yards, separated by age. We go out unless the wind chill is under 20&deg;F or the heat index is over 90&deg;F.</p></div></div>
+      <div class="slot"><time>11:30 am</time><div><h3>Lunch</h3><p>Family style at low tables, served by the classroom teacher, who eats what the children eat.</p></div></div>
+      <div class="slot"><time>12:15 pm</time><div><h3>Rest</h3><p>Cots, lights down, quiet music until 2:30. Children who wake early get books on the reading rug.</p></div></div>
+      <div class="slot"><time>2:30 pm</time><div><h3>Snack &amp; choice</h3><p>Then back to whatever they were building this morning &mdash; we leave the block city standing.</p></div></div>
+      <div class="slot"><time>4:00 pm</time><div><h3>Slow pickup</h3><p>Outside again or the gross-motor room, and a note home for every family before the last child leaves.</p></div></div>
+    </div>
+  </section>
+
+  <section id="classrooms" class="wrap sec">
+    <div class="sec-head">
+      <p class="eyebrow">Classrooms</p>
+      <h2>Seven rooms, sorted the way children actually grow.</h2>
+      <p>Children move up when they are ready for the next room, not on their birthday. Transitions happen over two weeks, with visits before the move.</p>
+    </div>
+
+    <div class="rooms">
+      <article class="room">
+        <span class="tick">6 wks</span>
+        <div><h3>Robins</h3><p class="room-age">6 weeks &ndash; 12 months</p></div>
+        <p class="room-copy">Your schedule, not ours. Bottles, naps, and tummy time run on each baby's clock, logged in the app as they happen. Primary caregiving means one teacher does most of the feeding and changing for the same four or five babies.</p>
+        <dl class="room-stats">
+          <div><dt>Teacher : child</dt><dd>1 : 5</dd></div>
+          <div><dt>Max group</dt><dd>12</dd></div>
+          <div><dt>Openings</dt><dd>2</dd></div>
+        </dl>
+      </article>
+
+      <article class="room">
+        <span class="tick">12 mo</span>
+        <div><h3>Wrens</h3><p class="room-age">12 &ndash; 18 months</p></div>
+        <p class="room-copy">New walkers need floor space and soft edges, so that is most of what this room is. First words get written down, first steps get a photo, and the whole class goes outside twice a day in a six-seat buggy.</p>
+        <dl class="room-stats">
+          <div><dt>Teacher : child</dt><dd>1 : 6</dd></div>
+          <div><dt>Max group</dt><dd>12</dd></div>
+          <div><dt>Openings</dt><dd>Waitlist</dd></div>
+        </dl>
+      </article>
+
+      <article class="room">
+        <span class="tick">18 mo</span>
+        <div><h3>Chickadees</h3><p class="room-age">18 &ndash; 30 months</p></div>
+        <p class="room-copy">The year of big feelings. We name them out loud, keep a cozy corner with a beanbag, and start sharing with sand timers instead of arguments. Potty training happens here, whenever you say you are ready at home.</p>
+        <dl class="room-stats">
+          <div><dt>Teacher : child</dt><dd>1 : 7</dd></div>
+          <div><dt>Max group</dt><dd>14</dd></div>
+          <div><dt>Openings</dt><dd>1</dd></div>
+        </dl>
+      </article>
+
+      <article class="room">
+        <span class="tick">30 mo</span>
+        <div><h3>Finches</h3><p class="room-age">30 &ndash; 36 months</p></div>
+        <p class="room-copy">Twos heading into threes, in a room built for pretend. A kitchen, a workbench, a costume rack, and a teacher who will be the customer for as long as the restaurant stays open. Scissors, glue, and the first real art projects.</p>
+        <dl class="room-stats">
+          <div><dt>Teacher : child</dt><dd>1 : 8</dd></div>
+          <div><dt>Max group</dt><dd>16</dd></div>
+          <div><dt>Openings</dt><dd>3</dd></div>
+        </dl>
+      </article>
+
+      <article class="room">
+        <span class="tick">3 yr</span>
+        <div><h3>Jays</h3><p class="room-age">3 year olds</p></div>
+        <p class="room-copy">Projects run for weeks &mdash; a bridge, a bug hunt, a map of the block. Letters and numbers arrive inside the project rather than on a worksheet, following Ohio's Early Learning and Development Standards.</p>
+        <dl class="room-stats">
+          <div><dt>Teacher : child</dt><dd>1 : 12</dd></div>
+          <div><dt>Max group</dt><dd>24</dd></div>
+          <div><dt>Openings</dt><dd>4</dd></div>
+        </dl>
+      </article>
+
+      <article class="room">
+        <span class="tick">4 yr</span>
+        <div><h3>Cardinals</h3><p class="room-age">Pre-K, 4 &ndash; 5 year olds</p></div>
+        <p class="room-copy">The kindergarten year in miniature: writing their name, hearing sounds in words, counting past twenty, and sitting through a story with a group. We share a readiness summary with families each spring, keyed to Ohio's Kindergarten Readiness Assessment.</p>
+        <dl class="room-stats">
+          <div><dt>Teacher : child</dt><dd>1 : 14</dd></div>
+          <div><dt>Max group</dt><dd>28</dd></div>
+          <div><dt>Openings</dt><dd>6</dd></div>
+        </dl>
+      </article>
+
+      <article class="room">
+        <span class="tick">K&ndash;6</span>
+        <div><h3>The Flock</h3><p class="room-age">School age, K &ndash; 6th grade</p></div>
+        <p class="room-copy">Before and after school with district bus pickup, homework help, and a gym. Full days on teacher in-service days, winter and spring break, and all summer &mdash; with field trips most Thursdays.</p>
+        <dl class="room-stats">
+          <div><dt>Teacher : child</dt><dd>1 : 18</dd></div>
+          <div><dt>Max group</dt><dd>36</dd></div>
+          <div><dt>Openings</dt><dd>Open</dd></div>
+        </dl>
+      </article>
+    </div>
+    <p class="rail-note">The ratios above are the maximums Ohio child care licensing allows for each age group. We schedule below them in the infant and toddler rooms for most of the day, and post the day's staffing on each classroom door.</p>
+  </section>
+
+  <section id="tuition" class="wrap sec">
+    <div class="sec-head">
+      <p class="eyebrow">Tuition</p>
+      <h2>One weekly rate. Meals, supplies, and diapers included.</h2>
+      <p>No separate charges for breakfast, lunch, two snacks, art materials, diapers, wipes, or sunscreen. Tuition is billed weekly and drafted every Monday.</p>
+    </div>
+    <div class="panel table-scroll">
+      <table>
+        <caption>Weekly tuition per child, effective January 2026.</caption>
+        <thead>
+          <tr><th scope="col">Classroom</th><th scope="col">Ages</th><th scope="col">Full time (5 days)</th><th scope="col">Part time (3 days)</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Robins</th><td>6 wks &ndash; 12 mo</td><td class="num">$305</td><td class="num">$215</td></tr>
+          <tr><th scope="row">Wrens</th><td>12 &ndash; 18 mo</td><td class="num">$290</td><td class="num">$205</td></tr>
+          <tr><th scope="row">Chickadees</th><td>18 &ndash; 30 mo</td><td class="num">$275</td><td class="num">$195</td></tr>
+          <tr><th scope="row">Finches</th><td>30 &ndash; 36 mo</td><td class="num">$260</td><td class="num">$185</td></tr>
+          <tr><th scope="row">Jays</th><td>3 years</td><td class="num">$240</td><td class="num">$170</td></tr>
+          <tr><th scope="row">Cardinals</th><td>4 &ndash; 5 years</td><td class="num">$230</td><td class="num">$165</td></tr>
+          <tr><th scope="row">The Flock</th><td>K &ndash; 6th grade</td><td class="num">$150</td><td class="num">$105</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="pay">
+      <div><h3>Publicly funded child care</h3><p>We accept PFCC vouchers. Apply through your county Job and Family Services office &mdash; bring us the award letter and we will handle the rest of the paperwork.</p></div>
+      <div><h3>Sibling discount</h3><p>Ten percent off the older child's tuition for as long as two or more children from one family are enrolled.</p></div>
+      <div><h3>Holding a spot</h3><p>A $75 annual registration fee per child, and two weeks' tuition to hold a start date more than a month out, credited to your first invoice.</p></div>
+    </div>
+  </section>
+
+  <section id="safety" class="wrap sec">
+    <div class="sec-head">
+      <p class="eyebrow">Safety &amp; health</p>
+      <h2>The unglamorous parts, in writing.</h2>
+      <p>Most of this is required by Ohio licensing. We would rather you read it here than find out about it on a tour.</p>
+    </div>
+    <div class="safe">
+      <div><h3>One locked door</h3><p>Every family gets a keypad code. Pickup is limited to the names on your authorization list, with photo ID until the front desk knows your face.</p></div>
+      <div><h3>Background checks on every adult</h3><p>Ohio BCI and FBI criminal records checks for teachers, cooks, drivers, and administrators, rechecked on the state's schedule.</p></div>
+      <div><h3>Trained for the bad day</h3><p>Pediatric CPR, first aid, and communicable disease training current for all staff, plus the in-service hours Ohio requires every two years.</p></div>
+      <div><h3>Meals that meet the standard</h3><p>Breakfast, lunch, and two snacks made on site &mdash; whole grains, no sugar-sweetened drinks, water always available, family-style service.</p></div>
+      <div><h3>Allergies and medication</h3><p>Care plans on file and posted inside each classroom cabinet. Epinephrine and inhalers stay in the room, not in a locked office down the hall.</p></div>
+      <div><h3>Drills on the calendar</h3><p>Fire drills every month and tornado drills every month from April through July, as Ohio requires, plus an annual lockdown practice.</p></div>
+    </div>
+  </section>
+
+  <section id="questions" class="wrap sec">
+    <div class="sec-head">
+      <p class="eyebrow">Questions</p>
+      <h2>What families ask on the first call.</h2>
+    </div>
+    <div class="qa">
+      <div><h3>Do you have an opening for my child?</h3><p>Sometimes. Infant spots turn over slowly and preschool moves fast. The waitlist is free and we call in order &mdash; there is no jumping it.</p></div>
+      <div><h3>What happens on a snow day?</h3><p>We keep our own calendar and stay open when the schools close. We close only for a county Level 3 snow emergency, announced by 5:30 am.</p></div>
+      <div><h3>When do I keep my child home?</h3><p>Fever over 100.4&deg;F, vomiting or diarrhea in the last 24 hours, or anything on Ohio's communicable disease chart. We call you if it starts here.</p></div>
+      <div><h3>Can I stop in during the day?</h3><p>Yes, without calling first. Ohio licensing gives enrolled families access to their child's classroom any time their child is there, and we mean it.</p></div>
+      <div><h3>Are you closed for holidays?</h3><p>Eight days a year: New Year's Day, Memorial Day, Juneteenth, July 4th, Labor Day, Thanksgiving and the day after, and Christmas Day. Tuition is unchanged those weeks.</p></div>
+      <div><h3>How do you handle biting?</h3><p>It is normal at eighteen months and it is still hard. We shadow, we redirect, we tell both families the same day, and nobody's name gets shared.</p></div>
+    </div>
+  </section>
+
+  <section id="visit" class="visit">
+    <div class="wrap">
+      <p class="eyebrow">Visit</p>
+      <h2>Come see a Tuesday morning.</h2>
+      <div class="visit-grid">
+        <dl class="contact">
+          <div><dt>Address</dt><dd>128 Cardinal Lane, Suite A<br>Millbrook, Ohio 43000</dd></div>
+          <div><dt>Phone</dt><dd class="big"><a href="tel:+15550142200">(555) 014-2200</a></dd></div>
+          <div><dt>Email</dt><dd><a href="mailto:hello@cardinallane.example">hello@cardinallane.example</a></dd></div>
+          <div><dt>Hours</dt><dd>Monday &ndash; Friday, 6:30 am &ndash; 6:00 pm</dd></div>
+          <div><dt>Tours</dt><dd>Tuesdays and Thursdays, 9:30 am and 4:00 pm</dd></div>
+          <div><dt>License</dt><dd>Ohio Department of Children and Youth #1234567</dd></div>
+        </dl>
+
+        <form id="tour">
+          <h3>Request a tour</h3>
+          <p class="sub">Tell us a little and we will call back the same day.</p>
+          <div class="field">
+            <label for="name">Your name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="room">Classroom you need</label>
+            <select id="room" name="room">
+              <option>Robins &mdash; 6 weeks to 12 months</option>
+              <option>Wrens &mdash; 12 to 18 months</option>
+              <option>Chickadees &mdash; 18 to 30 months</option>
+              <option>Finches &mdash; 30 to 36 months</option>
+              <option>Jays &mdash; 3 year olds</option>
+              <option>Cardinals &mdash; Pre-K</option>
+              <option>The Flock &mdash; school age</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="start">Start date</label>
+            <input id="start" name="start" type="text" placeholder="March 2026, or as soon as possible">
+          </div>
+          <div class="field">
+            <label for="note">Anything we should know</label>
+            <textarea id="note" name="note"></textarea>
+          </div>
+          <button class="btn" type="submit">Send request</button>
+          <p class="form-note" id="formNote">Opens your email app with the message ready to send.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <p><strong>Cardinal Lane Early Learning</strong><br>128 Cardinal Lane, Suite A, Millbrook, Ohio 43000 &middot; (555) 014-2200</p>
+      <p>Licensed by the Ohio Department of Children and Youth.<br>An equal opportunity provider. Serving families since 2009.</p>
+    </div>
+    <p class="sample">This is a sample website built from a template. Before publishing, replace the center name, address, phone, email, license number, tuition rates, opening counts, and the Step Up To Quality rating with your own. Ratios shown are Ohio's licensed maximums by age group.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('tour').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var el = e.target.elements;
+  var body = [
+    'Name: ' + el.name.value,
+    'Email: ' + el.email.value,
+    'Classroom: ' + el.room.value,
+    'Start date: ' + (el.start.value || 'not sure'),
+    '',
+    el.note.value
+  ].join('\n');
+  var note = document.getElementById('formNote');
+  note.textContent = 'Opening your email app now. If nothing happens, call (555) 014-2200.';
+  window.location.href = 'mailto:hello@cardinallane.example'
+    + '?subject=' + encodeURIComponent('Tour request - ' + el.name.value)
+    + '&body=' + encodeURIComponent(body);
+});
+</script>
